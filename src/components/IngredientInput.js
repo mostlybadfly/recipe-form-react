@@ -2,18 +2,14 @@ import React from 'react'
 
 class IngredientInput extends React.Component {
   constructor(props) {
-    super(props); 
-    //testing to see if I can collect an array of ingredients
+    super(props);
     this.ingredients = []
   }
 
   addIngredient(event) {
     if (event.key === 'Enter') {
-      this.ingredients.push(this.ingredientInput.value)
+      this.ingredients.push(this.ingredientInput.value);
       event.preventDefault();
-      // printing input value for testing purposes
-      console.log(this.ingredientInput.value)
-      console.log (this.ingredients)
     }
   }
 
