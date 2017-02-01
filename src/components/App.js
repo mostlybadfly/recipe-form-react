@@ -28,7 +28,6 @@ class App extends React.Component {
     this.setState({ currentRecipe })
   }
 
-
   render() {
     return (
       <div>
