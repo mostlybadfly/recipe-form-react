@@ -12,7 +12,7 @@ class Recipe extends React.Component {
       <p key={index}>{instruction}</p>
     );
     return (
-      <div>
+      <div className="recipe-display">
         <h1>{currentRecipe.title}</h1>
         {ingredients.length > 0 ? <h3>Ingredients:</h3> : <p></p>}
         {ingredientList}

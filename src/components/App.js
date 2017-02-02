@@ -2,6 +2,7 @@ import React from 'react';
 import RecipeForm from './RecipeForm';
 import RecipeList from './RecipeList';
 import Recipe from './Recipe';
+import '../App.css';
 
 class App extends React.Component {
   constructor() {
