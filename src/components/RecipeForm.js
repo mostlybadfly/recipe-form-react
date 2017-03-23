@@ -6,6 +6,7 @@ class RecipeForm extends React.Component {
   constructor() {
     super();
     this.state = {
+      title: null,
       ingredients: [],
       instructions: []
     }
@@ -14,13 +15,14 @@ class RecipeForm extends React.Component {
   createRecipe(event) {
     event.preventDefault();
     const recipe = {
-      title: this.title.value,
+      title: this.state.title,
       ingredients: this.state.ingredients,
       instructions: this.state.instructions
     }
     this.props.addRecipe(recipe);
     this.recipeForm.reset();
     this.setState({
+      title: null,
       ingredients: [],
       instructions: []
     })
@@ -30,6 +32,7 @@ class RecipeForm extends React.Component {
     if (event.key === 'Enter') {
       event.preventDefault();
     }
+    this.setState({title: event.target.value});
   }
 
   addIngredient(event) {
@@ -68,7 +71,7 @@ class RecipeForm extends React.Component {
   render() {
     return (
       <form ref={(input) => this.recipeForm = input} onSubmit={(e) => this.createRecipe(e)}>
-        <input className="title" ref={(input) => this.title = input} type="text" placeholder="Title" onKeyPress={(e) => this.addTitle(e)} />
+        <input className="title" ref={(input) => this.title = input} type="text" placeholder="Title" onBlur={(e) => this.addTitle(e)} />
         <h2>Ingredients</h2>
         <input type="text" className="item-input" placeholder="10 Apples..." onKeyPress={(e) => this.addIngredient(e)} ref={(input) => {this.ingredientInput = input}}></input>
         <IngredientOutput ingredients={this.state.ingredients} removeIngredient={ingredient => this.removeIngredient(ingredient)} />
