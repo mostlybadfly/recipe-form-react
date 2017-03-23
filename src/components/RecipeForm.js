@@ -66,6 +66,7 @@ class RecipeForm extends React.Component {
       this.setState({instructions: instructions})
     }
   }
+
   //need a function here to validate input. Recipe needs at least a title to start
 
   render() {
